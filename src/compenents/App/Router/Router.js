@@ -66,7 +66,7 @@ const Cgu = () => {
         <div className="section">
         <h4 className="section__article__title">Conditions Générales d'Utilisation</h4>
         <p className="country__content">
-            Les présentes Conditions Générales d'Utilisation (ci-après dénommées "CGU") régissent l'utilisation du blog exploité par Oume Azed (ci-après dénommé "le Blog"). En utilisant le Blog, vous acceptez pleinement et sans réserve les présentes CGU. Si vous n'acceptez pas ces conditions, veuillez cesser d'utiliser le Blog.
+            Les présentes Conditions Générales d'Utilisation, ci-après dénommées "CGU" régissent l'utilisation du blog exploité par Oume Azed, ci-après dénommé "le Blog". En utilisant le Blog, vous acceptez pleinement et sans réserve les présentes CGU. Si vous n'acceptez pas ces conditions, veuillez cesser d'utiliser le Blog.
         </p>
         <h5 className="section__article__title">Propriété Intellectuelle</h5>
         <p className="country__content">
