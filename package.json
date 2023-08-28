@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "start": "parcel ",
-    "build": "parcel build"
+    "start": "parcel "
+    
   },
   "keywords": [],
   "author": "",
