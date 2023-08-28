@@ -1,4 +1,3 @@
-import '../../../styles/headerfooter.css'
 
 const Header = () => {
     return(

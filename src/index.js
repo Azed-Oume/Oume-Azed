@@ -7,6 +7,7 @@ import CardMaps from "./compenents/App/CardMaps/CardMaps.js";
 import ScrollToTopButton  from "./compenents/App/ScrollToTopButton/ScrollToTopButton.js";
 import App from './compenents/App/App';
 import './styles/reset.css';
+import './styles/headerFooter.css'
 import './styles/formSearch.css';
 import './styles/router.css';
 import './styles/card.css';
