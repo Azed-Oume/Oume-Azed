@@ -1,0 +1,58 @@
+/* reset.css */
+
+/* Remise à zéro des marges et des rembourrages */
+body{
+  background-image: url(../compenents/images/la_feuille_2.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd {
+    margin: 0;
+    padding: 0;
+  }
+  h1{
+    font-size: 1.5rem;
+  }
+
+  h2{
+    font-size: 1.3rem;
+  }
+
+  h3{
+    font-size: 1.1rem;
+  }
+
+  /* Remise à zéro de la liste des styles */
+  ul, ol {
+    list-style: none;
+  }
+  
+  /* Remise à zéro des liens par défaut */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Remise à zéro de la police de caractères par défaut */
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Remise à zéro des styles de formulaire par défaut */
+  input, textarea, button {
+    width: auto;
+    margin: .5rem;
+    padding: .5rem;
+    border: 1px solid gray;
+    border-radius: 5px;
+    outline: 1px solid gray;
+    background: rgb(209, 208, 208);
+    color: rgb(4, 92, 4);
+  }
+  
+  /* Ajoutez d'autres réinitialisations si nécessaire selon votre projet */
+  
+  /* Ajoutez vos styles personnalisés ci-dessous */
+  

@@ -1,0 +1,26 @@
+.google-map-container{
+    width: 90%;
+    margin: 1rem auto;
+    border: 2px solid gray;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px 5 rgba(78, 82, 77, 0.5);
+    text-transform: uppercase;
+    color: rgb(11, 11, 88);
+    padding: 5px;
+    text-align: center;
+    background: linear-gradient(to right, rgba(180, 210, 180, 0.9), rgba(240, 240, 240, 0.9));  
+}
+
+.google__title{
+    width: 80%;
+    margin: 1rem auto;
+    border: 2px solid gray;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px 5 rgba(78, 82, 77, 0.5);
+    text-transform: uppercase;
+    color: rgb(11, 11, 88);
+    padding: 5px;
+    text-align: center;
+    background: linear-gradient(to right, rgba(180, 210, 180, 0.9), rgba(240, 240, 240, 0.9)); 
+}
+
