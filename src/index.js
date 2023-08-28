@@ -26,7 +26,7 @@ root.render(
             <Route path="/Recherche" element={<App />} />
             <Route path="/Conception" element={<Conception />} />
             <Route path="/Blog" element={<Blog />} />
-            <Route path="Cgu" element={<Cgu />} />
+            <Route path="/Cgu" element={<Cgu />} />
         </Routes>
         <ScrollToTopButton />
     <Footer />
