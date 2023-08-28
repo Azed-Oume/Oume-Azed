@@ -13,7 +13,6 @@ import './styles/router.css';
 import './styles/card.css';
 import './styles/cardMaps.css';
 import './styles/ScrollToTopButton.css'
-import mammoth from "mammoth";
 
 
 const container = document.getElementById('app');

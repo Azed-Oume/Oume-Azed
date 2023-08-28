@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import ApiSearch from "./ApiSearch/ApiSearch";
 import FormSearch from "../FormSearch/FormSearch";
-import CardMaps from "./CardMaps/CardMaps";
-import ScrollToTopButton from "./ScrollToTopButton/ScrollToTopButton.js";
+
 
 const App = () => {
 

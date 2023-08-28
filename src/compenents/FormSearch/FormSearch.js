@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import formatPopulation from '../Item/formatPopulation';
 import ApiSearch from '../App/ApiSearch/ApiSearch';
 
 const FormSearch = ({ items }) => {
