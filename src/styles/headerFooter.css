@@ -26,6 +26,9 @@ body{
     box-shadow: 10px 10px 10px 5 rgba(78, 82, 77, 0.5);
     background: linear-gradient(to right, rgba(180, 210, 180, 0.6), rgba(240, 240, 240, 0.6)); 
 }
+.footer::-webkit-scrollbar, .header::-webkit-scrollbar{
+    background-color: gray;
+}
 .header__nav, .footer__nav{
     display: flex;
     flex-direction: row;
@@ -50,10 +53,10 @@ body{
 
 @media screen and (max-width: 600px) {
     body{
-        margin: 9rem 0 0 0;
+        margin: 5rem 0 0 0;
     }
     .header{
-        margin: -9rem 0 0 0;
+        margin: -5rem 0 0 0;
     }
     .footer{
         margin: 1rem -.3rem ;
@@ -61,6 +64,7 @@ body{
     .header__nav, .footer__nav{
         display: flex;
         flex-direction: column;
+        
     }
     .header__nav__link, .footer__nav__link{
         margin: .2rem 0 .2rem .2rem;
@@ -69,6 +73,43 @@ body{
         box-shadow: 10px 10px 10px 5 rgba(78, 82, 77, 0.5);
         background: linear-gradient(to right, rgb(255, 255, 255, 6), rgb(255, 255, 255, 6)); 
     }
+    .link__one{
+        position: relative;
+        z-index: 1;
+        margin:  1rem;
+        width: 13rem;
+    }
+    .link__one:hover{
+        z-index: 5;
+        text-align: center;
+    }
+    .link__two{
+        position: absolute;
+        z-index: 2;
+        margin: 3rem;
+        width: 13rem;
+    }
+    .link__two:hover{
+        z-index: 5;
+        text-align: center;
+    }
+    .link__three{
+        position: absolute;
+        z-index: 3;
+        margin: 5rem;
+        width: 13rem;
+    }
+    .link__three:hover{
+        z-index: 5;
+        text-align: center;
+    }
+    .link__four{
+        position: absolute;
+        z-index: 4;
+        margin: 7rem;
+        width: 13rem;
+    }
+    
 }
 
 
