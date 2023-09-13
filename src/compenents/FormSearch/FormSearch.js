@@ -38,9 +38,9 @@ const FormSearch = ({ items }) => {
         <div className="country__form">
             <h2 className="country__form__title">Ma commune ...</h2>
             <div className="country__form__search">
-                <p className="country__form__content option" onClick={() => handleOptionClick('Recherche par ville... :')}>Recherche par ville... :</p>
-                <p className="country__form__content option" onClick={() => handleOptionClick('Recherche par code-postal... :')}>Recherche par code-postal... :</p>
-                <p className="country__form__content option" onClick={() => handleOptionClick('Recherche par departement... :')}>Recherche par departement... :</p>
+                <p className="country__form__content option" onClick={() => handleOptionClick('Recherche par ville:')}>Recherche par ville :</p>
+                <p className="country__form__content option" onClick={() => handleOptionClick('Recherche par code-postal :')}>Recherche par code-postal :</p>
+                <p className="country__form__content option" onClick={() => handleOptionClick('Recherche par departement :')}>Recherche par departement :</p>
             </div>
             {showFormSearch && (
                 <form className="country__form__search" onSubmit={handleSubmit}>

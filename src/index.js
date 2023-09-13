@@ -12,7 +12,9 @@ import './styles/formSearch.css';
 import './styles/router.css';
 import './styles/card.css';
 import './styles/cardMaps.css';
-import './styles/ScrollToTopButton.css'
+import './styles/ScrollToTopButton.css';
+import './styles/contactForm.css';
+import ContactForm from "./compenents/App/ContactForm/ContactForm.js";
 
 
 const container = document.getElementById('app');
@@ -27,10 +29,10 @@ root.render(
             <Route path="/Conception" element={<Conception />} />
             <Route path="/Blog" element={<Blog />} />
             <Route path="/Cgu" element={<Cgu />} />
+            <Route path="/Contact" element={<ContactForm />} />
         </Routes>
         <ScrollToTopButton />
     <Footer />
-    
 </BrowserRouter> 
 );
 

@@ -17,8 +17,8 @@ const formatPopulation = (population)=>{
     
 }
 
-console.log(formatPopulation(1500000)); 
-console.log(formatPopulation(750000)); 
-console.log(formatPopulation(400)); 
+// console.log(formatPopulation(1500000)); 
+// console.log(formatPopulation(750000)); 
+// console.log(formatPopulation(400)); 
 
 export default formatPopulation;

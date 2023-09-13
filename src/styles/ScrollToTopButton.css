@@ -8,7 +8,7 @@
   }
   
   .scroll-to-top.visible {
-    opacity: 1;
+    opacity: .7;
     visibility: visible;
   }
   .scroll{
@@ -20,3 +20,4 @@
     background: gray;
     color: white;
 }
+

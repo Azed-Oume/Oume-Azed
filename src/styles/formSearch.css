@@ -1,7 +1,7 @@
 .country{
     display: flex;
     flex-direction: column;
-    background: linear-gradient(to right, rgba(180, 210, 180, 0.9), rgba(240, 240, 240, 0.9)); 
+    background: linear-gradient(to right, rgba(180, 210, 180, 0.6), rgba(240, 240, 240, 0.6)); 
     box-shadow: 10px 10px 10px 5 rgba(78, 82, 77, 0.5);
     width: 90%;
     margin: 1rem auto;
@@ -36,7 +36,7 @@
     border-radius: 10px;
     box-shadow: 10px 10px 10px 5 rgba(78, 82, 77, 0.5);
     text-align: left;
-    background: linear-gradient(to right, rgba(180, 210, 180, 0.9), rgba(240, 240, 240, 0.9)); 
+    background: linear-gradient(to right, rgba(180, 210, 180, 0.6), rgba(240, 240, 240, 0.6)); 
 }
 .country__form__content:hover{
     box-shadow: 5px 5px 5px 5 rgba(3, 100, 24, 0.5);
