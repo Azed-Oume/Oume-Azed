@@ -118,14 +118,14 @@ body{
     display: inline-block;
     margin: .5rem auto;
     width: 90%; /* Largeur de la boîte */
-    text-align: center;
+    /* text-align: center; */
     font-size: 0.8rem;
     border: 2px solid gray;
     border-radius: 10px;
     box-shadow: 10px 10px 10px 5 rgba(78, 82, 77, 0.5);
     padding: 0.5rem 1rem;
     background: linear-gradient(to right, rgba(180, 210, 180, 0.9), rgba(240, 240, 240, 0.9));
-    white-space: nowrap;
+    white-space: nowrap; 
     overflow: hidden;
 }
 
@@ -138,7 +138,8 @@ body{
     }
 }
 
-.container .copyright {
+.copyright {
+    
     display: inline-block;
     animation: scroll 10s linear infinite;
 }

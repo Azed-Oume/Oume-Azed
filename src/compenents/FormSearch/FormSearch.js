@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ApiSearch from '../App/ApiSearch/ApiSearch';
 
 const FormSearch = ({ items }) => {
@@ -6,11 +6,21 @@ const FormSearch = ({ items }) => {
     const [placeHolder, setPlaceHolder] = useState('');
     const [search, setSearch] = useState('');
     const [searchResults, setSearchResults] = useState([]);
+    const inputRef = useRef(null); // Ajout de la référence à l'élément input
 
     const handleOptionClick = (newPlaceholder) => {
         setShowFormSearch(true);
         setPlaceHolder(newPlaceholder);
     };
+
+         // Utilisation de useEffect pour définir le focus sur l'élément input
+    useEffect(() => {
+        if (showFormSearch && inputRef.current) {
+            inputRef.current.focus();
+            inputRef.current.select(); // Sélectionner tout le texte dans l'input
+        }
+    }, [showFormSearch]);
+
 
     const removeAccents = str =>
     str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -45,13 +55,15 @@ const FormSearch = ({ items }) => {
             {showFormSearch && (
                 <form className="country__form__search" onSubmit={handleSubmit}>
                     <div className="country__form__content">
-                        <input
+                        <input 
+                            id='search-input' 
+                            ref={inputRef} // Associer la référence à l'élément input
                             type="search"
                             placeholder={placeHolder}
                             onChange={handleChange}
                             value={search}
                         />
-                        <button type="submit">Lancer Votre Recherche</button>
+                        <button  type="submit">Lancer Votre Recherche</button>
                     </div>
                 </form>
             )}
