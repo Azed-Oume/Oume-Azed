@@ -23,4 +23,26 @@
     color: black;
     background: linear-gradient(to right, rgb(255, 255, 255, 6), rgb(255, 255, 255, 6)); 
 }
-
+.image{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-image: url("../compenents/images/fond_clair.jpg");
+    border: solid 2px rgb(4, 80, 4);
+    border-radius: 20px;
+    
+}
+.image-custom{
+    max-width: 100px;
+    max-height: 200px;
+    margin: .5rem .5rem;
+    border: solid 2px rgb(4, 80, 4);
+    border-radius: 20px;
+}
+.image-custom-helico{
+    max-width: 200px;
+    max-height: 200px;
+    margin: .5rem .5rem;
+    border: solid 2px rgb(4, 80, 4);
+    border-radius: 20px;
+}
