@@ -15,6 +15,7 @@ import './styles/cardMaps.css';
 import './styles/ScrollToTopButton.css';
 import './styles/contactForm.css';
 import ContactForm from "./compenents/App/ContactForm/ContactForm.js";
+import Inscription from "./compenents/App/Inscription/Inscription.js";
 
 
 
@@ -26,6 +27,7 @@ root.render(
     <Header />
     <CardMaps />
         <Routes>
+            <Route path="/Inscription" element={<Inscription/>}/>
             <Route path="/" element={<Acceuil />} />
             <Route path="/Recherche" element={<App />} />
             <Route path="/Conception" element={<Conception />} />
