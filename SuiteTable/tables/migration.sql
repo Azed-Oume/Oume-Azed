@@ -1,25 +1,10 @@
--- Création de la base de données blogoume
-CREATE DATABASE IF NOT EXISTS blogoume;
-
--- Création de l'utilisateur devoume avec le mot de passe devoume
-CREATE USER 'devoume'@'localhost' IDENTIFIED BY 'devoume';
-
--- Attribution des privilèges à l'utilisateur devoume sur la base de données blogoume
-GRANT ALL PRIVILEGES ON blogoume.* TO 'devoume'@'localhost';
-
--- Appliquer les modifications aux privilèges
-FLUSH PRIVILEGES;
-
--- Utilisation de la base de données blogoume
-USE blogoume;
-
 -- Version: 1
 BEGIN;
 
 -- Suppression des tables existantes si elles existent
 DROP TABLE IF EXISTS PostsTags;
 DROP TABLE IF EXISTS Tags;
-DROP TABLE IF EXISTS Comments;
+DROP TABLE IF EXISTS Commentaires;
 DROP TABLE IF EXISTS Posts;
 DROP TABLE IF EXISTS Categories;
 DROP TABLE IF EXISTS Users;
@@ -38,6 +23,13 @@ CREATE TABLE Users (
   Role ENUM('administrateur', 'éditeur', 'abonné')
 );
 
+-- Création de la table Catégories
+CREATE TABLE Categories (
+  categoryID INT AUTO_INCREMENT PRIMARY KEY,
+  Nom VARCHAR(50),
+  Description TEXT
+);
+
 -- Création de la table Articles
 CREATE TABLE Posts (
   postID INT AUTO_INCREMENT PRIMARY KEY,
@@ -54,15 +46,8 @@ CREATE TABLE Posts (
   FOREIGN KEY (Categorie) REFERENCES Categories(categoryID)
 );
 
--- Création de la table Catégories
-CREATE TABLE Categories (
-  categoryID INT AUTO_INCREMENT PRIMARY KEY,
-  Nom VARCHAR(50),
-  Description TEXT
-);
-
 -- Création de la table Commentaires
-CREATE TABLE Comments (
+CREATE TABLE Commentaires (
   commentID INT AUTO_INCREMENT PRIMARY KEY,
   Contenu TEXT,
   DateCommentaire TIMESTAMP,
@@ -88,3 +73,17 @@ CREATE TABLE PostsTags (
 );
 
 COMMIT;
+
+
+
+-- Insérer un administrateur
+INSERT INTO Users (Nom, Prenom, Pseudo, AdresseEmail, MotDePasse, DateInscription, Role)
+VALUES ('NomAdmin', 'PrenomAdmin', 'Admin', 'admin@example.com', 'motdepasseadmin', NOW(), 'administrateur');
+
+-- Insérer un abonné
+INSERT INTO Users (Nom, Prenom, Pseudo, AdresseEmail, MotDePasse, DateInscription, Role)
+VALUES ('NomAbonne', 'PrenomAbonne', 'Abonne', 'abonne@example.com', 'motdepasseabonne', NOW(), 'abonné');
+
+-- Insérer un éditeur
+INSERT INTO Users (Nom, Prenom, Pseudo, AdresseEmail, MotDePasse, DateInscription, Role)
+VALUES ('NomEditeur', 'PrenomEditeur', 'Editeur', 'editeur@example.com', 'motdepasseediteur', NOW(), 'éditeur');
