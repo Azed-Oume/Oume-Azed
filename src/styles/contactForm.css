@@ -21,15 +21,20 @@
     display: flex;
     flex-direction: column;
     background: linear-gradient(to right, rgba(180, 210, 180, 0.9), rgba(240, 240, 240, 0.9)); 
-    width: 80%;
+    width: 70%;
     margin: .5rem auto;
     padding: .5rem .5rem;
 }
 .contact__form__label{
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     background: linear-gradient(to right, rgba(180, 210, 180, 0.9), rgba(240, 240, 240, 0.9)); 
     width: 80%;
     margin: .5rem auto;
     padding: .5rem .5rem;
+}
+.width{
+    width: 8rem;
+    margin: .5rem auto;
+    text-align: center;
 }
