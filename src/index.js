@@ -15,7 +15,9 @@ import './styles/cardMaps.css';
 import './styles/ScrollToTopButton.css';
 import './styles/contactForm.css';
 import ContactForm from "./compenents/App/ContactForm/ContactForm.js";
-import Inscription from "./compenents/App/Inscription/Inscription.js";
+import Inscription from "./compenents/App/ContactForm/Inscription/Inscription.js";
+import ArticleForm from "./compenents/App/ContactForm/ArticleForm.js";
+import Connexion from "./compenents/App/ContactForm/Inscription/Connexion.js";
 
 
 
@@ -28,12 +30,14 @@ root.render(
     <CardMaps />
         <Routes>
             <Route path="/Inscription" element={<Inscription/>}/>
+            <Route path="/Connexion" element={<Connexion/>}/>
+            <Route path="/Contact" element={<ContactForm />} />
             <Route path="/" element={<Acceuil />} />
             <Route path="/Recherche" element={<App />} />
             <Route path="/Conception" element={<Conception />} />
             <Route path="/Blog" element={<Blog />} />
             <Route path="/Cgu" element={<Cgu />} />
-            <Route path="/Contact" element={<ContactForm />} />
+            <Route path="/form" element={<ArticleForm/>} />
         </Routes>
         <ScrollToTopButton />
     <Footer />

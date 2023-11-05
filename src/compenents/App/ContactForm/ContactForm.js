@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AuthService from '../AuthService/AuthService.js'; // Assurez-vous de spécifier le bon chemin d'accès
+import AuthService from '../AuthService/AuthService.js';
 import { useNavigate } from 'react-router-dom';
 
 function ContactForm() {
@@ -9,29 +9,7 @@ function ContactForm() {
     email: '',
     subject: '',
     message: '',
-    redirectToInscription: false, // État pour gérer la redirection
   });
-
-  const checkInscriptionInBDD = () => {
-    // Effectuez ici votre vérification dans la BDD (abonné ou éditeur)
-    // Si la vérification échoue, mettez à jour l'état redirectToInscription.
-
-    // Par exemple, si vous avez un service d'authentification,
-    // vous pouvez vérifier le rôle de l'utilisateur à partir de la BDD.
-
-    AuthService.checkUserRole() // Exemple hypothétique
-      .then((userRole) => {
-        if (userRole !== 'abonné' && userRole !== 'éditeur') {
-          console.log("Vous n'etes pas inscrit !")
-          alert("Vous devez vous inscrire pour laisser un commentaire")
-          navigate("/Inscription");
-          
-        }
-      })
-      .catch((error) => {
-        console.error('Erreur de vérification : ', error);
-      });
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -40,10 +18,51 @@ function ContactForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    checkInscriptionInBDD();
-    // Vous pouvez ajouter votre logique de traitement du formulaire ici
-    // Par exemple, envoyer les données au serveur ou effectuer une action spécifique.
-    console.log(state);
+
+    AuthService.checkUserRole()
+    .then((userRole) => {
+      if (userRole === 'abonné' || userRole === 'éditeur') {
+        // L'utilisateur a le rôle approprié pour ajouter un commentaire
+        // Envoie le commentaire au serveur
+        submitComment(state)
+          .then((response) => {
+            console.log('Commentaire ajouté avec succès :', response);
+            // Mettez à jour l'interface utilisateur pour afficher le commentaire
+          })
+          .catch((error) => {
+            console.error('Erreur lors de l\'ajout du commentaire :', error);
+            // Gérez l'erreur et informez l'utilisateur
+          });
+      } else {
+         // Affichez un message d'erreur convivial à l'utilisateur
+        alert("Vous devez vous inscrire pour laisser un commentaire.");
+        // Redirigez l'utilisateur vers la page d'inscription s'il n'a pas le rôle approprié
+        navigate('/Inscription');
+      }
+    })
+    .catch((error) => {
+      console.error('Erreur lors de la vérification du rôle :', error);
+      // Gérez l'erreur et informez l'utilisateur
+    });
+};
+
+  const submitComment = (commentData) => {
+    // Vous devez implémenter cette fonction pour envoyer les données au serveur
+    // en utilisant des appels à une API côté serveur
+    // et retourner une promesse pour gérer la réponse
+    return fetch('/api/comment', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(commentData),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Erreur lors de l\'ajout du commentaire');
+        }
+        return response.json();
+      });
   };
 
   return (

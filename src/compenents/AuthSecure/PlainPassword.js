@@ -69,7 +69,7 @@ class MonComposant extends React.Component {
             onChange={this.handleInputChange} />
         </div>
         {this.state.emailMatchError && (
-            <div className='contact__error'>Les adresses email ne correspondent pas.</div>
+            <div className='contact__error text-red'>Les adresses email ne correspondent pas.</div>
         )}
         <div className='contact__form'>
             <label className='contact__form__label' htmlFor='ConfirmerAdresseEmail'>Confirmer Adresse Email</label>
