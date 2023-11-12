@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AuthService from '../AuthService/AuthService.js';
+import AuthService from '../../AuthService/AuthService.js';
 import { useNavigate } from 'react-router-dom';
 
 function ContactForm() {
@@ -66,13 +66,15 @@ function ContactForm() {
   };
 
   return (
-    <div className='contact'>
-      <h2 className='contact__title'>Contactez-nous</h2>
+    <div className="container bg-secondary mt-4 p-4 rounded">
+      <h2 className="text-white">Contactez-nous</h2>
       <form onSubmit={handleSubmit}>
-        <div className='contact__form'>
-          <label className='contact__form__label' htmlFor="name" >Nom :</label>
+        <div className="mb-3">
+          <label className="form-label text-white" htmlFor="name">
+            Nom :
+          </label>
           <input
-            className='contact__form__label'
+            className="form-control"
             autoComplete="family-name"
             type="text"
             id="name"
@@ -82,11 +84,13 @@ function ContactForm() {
             required
           />
         </div>
-        <div className='contact__form'>
-          <label className='contact__form__label' htmlFor="email">Email :</label>
+        <div className="mb-3">
+          <label className="form-label text-white" htmlFor="email">
+            Email :
+          </label>
           <input
-            className='contact__form__label'
-            autoComplete='email'
+            className="form-control"
+            autoComplete="email"
             type="email"
             id="email"
             name="email"
@@ -95,10 +99,12 @@ function ContactForm() {
             required
           />
         </div>
-        <div className='contact__form'>
-          <label className='contact__form__label' htmlFor="subject">Sujet :</label>
+        <div className="mb-3">
+          <label className="form-label text-white" htmlFor="subject">
+            Sujet :
+          </label>
           <input
-            className='contact__form__label'
+            className="form-control"
             type="text"
             id="subject"
             name="subject"
@@ -107,10 +113,12 @@ function ContactForm() {
             required
           />
         </div>
-        <div className='contact__form'>
-          <label className='contact__form__label' htmlFor="message">Message :</label>
+        <div className="mb-3">
+          <label className="form-label text-white" htmlFor="message">
+            Message :
+          </label>
           <textarea
-            className='contact__form__label'
+            className="form-control"
             id="message"
             name="message"
             value={state.message}
@@ -119,8 +127,10 @@ function ContactForm() {
             required
           ></textarea>
         </div>
-        <div className='contact__form'>
-          <button className='contact__form__label' type="submit">Envoyer</button>
+        <div className="mb-3">
+          <button className="btn btn-primary" type="submit">
+            Envoyer
+          </button>
         </div>
       </form>
     </div>

@@ -74,135 +74,186 @@ const Inscription = () => {
   };
 
   
-    return (
-      <div className='contact'>
-        <h2 className='contact__title'>Inscription</h2>
-        <form className='contact' method='POST' onSubmit={handleSubmit}>
-          <div className='contact__form'>
-            <label className='contact__form__label' htmlFor='Nom'>Nom</label>
-            <input 
-            className='contact__form__label' 
-            autoComplete="family-name"  
-            type="text" 
-            name="Nom" 
-            value={formData.Nom} 
-            onChange={handleInputChange} />
+  return (
+    <div className="container bg-secondary mt-4 pt-1">
+      <form className="row mb-2 mt-4" method="POST" onSubmit={handleSubmit}>
+        <div className="col-md-4">
+          <label 
+          htmlFor="Nom"
+          className="form-control bg-secondary text-white fw-bold mb-2"
+          >Nom</label>
+          <input
+            className="form-control mb-2"
+            autoComplete="family-name"
+            type="text"
+            name="Nom"
+            value={formData.Nom}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="col-md-4">
+          <label 
+          htmlFor="Prenom"
+          className="form-control bg-secondary text-white fw-bold mb-2"
+          >Prenom</label>
+          <input
+            className="form-control mb-2"
+            autoComplete="given-name"
+            type="text"
+            name="Prenom"
+            value={formData.Prenom}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="col-md-4">
+          <label 
+          htmlFor="Pseudo"
+          className="form-control bg-secondary text-white fw-bold mb-2"
+          >Pseudo</label>
+          <input
+            className="form-control mb-2"
+            autoComplete="username"
+            type="text"
+            name="Pseudo"
+            value={formData.Pseudo}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="col-md-6">
+          <label 
+          htmlFor="AdresseEmail"
+          className="form-control bg-secondary text-white fw-bold mb-2"
+          >Adresse Email</label>
+          <input
+            className="form-control mb-2"
+            autoComplete="email"
+            type="text"
+            name="AdresseEmail"
+            value={formData.AdresseEmail}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="col-md-6">
+          <label 
+          htmlFor="ConfirmerAdresseEmail"
+          className="form-control bg-secondary text-white fw-bold mb-2"
+          >Confirmer Adresse Email</label>
+          <input
+            className="form-control mb-2"
+            autoComplete="email"
+            type="text"
+            name="ConfirmerAdresseEmail"
+            value={formData.ConfirmerAdresseEmail}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        {emailMatchError && (
+          <div className="col-md-12 text-danger mb-2">
+            Les adresses email ne correspondent pas.
           </div>
-          <div className='contact__form'>
-            <label className='contact__form__label' htmlFor='Prenom'>Prenom</label>
-            <input 
-            className='contact__form__label' 
-            autoComplete="given-name" 
-            type="text" 
-            name="Prenom" 
-            value={formData.Prenom} 
-            onChange={handleInputChange} />
+        )}
+        <div className="col-md-6">
+          <label 
+          htmlFor="MotDePasse"
+          className="form-control bg-secondary text-white fw-bold mb-2"
+          >Mot de Passe</label>
+          <input
+            className="form-control mb-2"
+            autoComplete="new-password"
+            type="password"
+            name="MotDePasse"
+            value={formData.MotDePasse}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="col-md-6">
+          <label 
+          htmlFor="ConfirmerMotDePasse"
+          className="form-control bg-secondary text-white fw-bold mb-2"
+          >Confirmer Mot de Passe</label>
+          <input
+            className="form-control mb-2"
+            autoComplete="new-password"
+            type="password"
+            name="ConfirmerMotDePasse"
+            value={formData.ConfirmerMotDePasse}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        {passwordMatchError && (
+          <div className="col-md-12 text-danger mb-2">
+            Les mots de passe ne correspondent pas.
           </div>
-          <div className='contact__form'>
-            <label className='contact__form__label' htmlFor='Pseudo'>Pseudo</label>
-            <input 
-            className='contact__form__label' 
-            autoComplete="username" 
-            type="text" 
-            name="Pseudo" 
-            value={formData.Pseudo} 
-            onChange={handleInputChange} />
-          </div>
-          <div className='contact__form'>
-            <label className='contact__form__label' htmlFor='AdresseEmail'>Adresse Email</label>
-            <input 
-            className='contact__form__label' 
-            autoComplete="email" 
-            type="text" 
-            name="AdresseEmail" 
-            value={formData.AdresseEmail} 
-            onChange={handleInputChange} />
-          </div>
-          {emailMatchError && (
-            <div className='contact__error comparaisontest'>Les adresses email ne correspondent pas.</div>
-          )}
-          <div className='contact__form'>
-            <label className='contact__form__label' htmlFor='ConfirmerAdresseEmail'>Confirmer Adresse Email</label>
-            <input 
-            className='contact__form__label' 
-            autoComplete="email" 
-            type="text" 
-            name="ConfirmerAdresseEmail" 
-            value={formData.ConfirmerAdresseEmail} 
-            onChange={handleInputChange} />
-          </div>
-          {emailMatchError && (
-              <div className='contact__error  comparaisontest'>Les adresses email ne correspondent pas.</div>
-            )}
-          <div className='contact__form'>
-            <label className='contact__form__label' htmlFor='MotDePasse'>Mot de Passe</label>
-            <input 
-            className='contact__form__label' 
-            autoComplete="new-password" 
-            type="password" 
-            name="MotDePasse" 
-            value={formData.MotDePasse} 
-            onChange={handleInputChange} />
-          </div>
-          {passwordMatchError && (
-            <div className='contact__error comparaisontest'>Les mots de passe ne correspondent pas.</div>
-          )}
-          <div className='contact__form'>
-            <label className='contact__form__label' htmlFor='ConfirmerMotDePasse'>Confirmer Mot de Passe</label>
-            <input 
-            className='contact__form__label' 
-            autoComplete="new-password" 
-            type="password" 
-            name="ConfirmerMotDePasse" 
-            value={formData.ConfirmerMotDePasse} 
-            onChange={handleInputChange} />
-          </div>
-          {passwordMatchError && (
-            <div className='contact__error comparaisontest'>Les mots de passe ne correspondent pas.</div>
-          )}
-          <div className='contact__form'>
-            <label className='contact__form__label' htmlFor='Avatar'>Avatar</label>
-            <input
-              className='contact__form__label'
-              type="file"
-              name="Avatar"
-              onChange={handleFileInputChange}
-              accept="image/*" // Limiter l'acceptation aux fichiers image
+        )}
+        <div className="col-md-6">
+          <label 
+          htmlFor="Avatar"
+          className="form-control bg-secondary text-white fw-bold mb-2"
+          >Avatar</label>
+          <input
+            className="form-control-file mb-2"
+            type="file"
+            name="Avatar"
+            onChange={handleFileInputChange}
+            accept="image/*"
+          />
+        </div>
+        {formData.Avatar && (
+          <div className="col-md-6">
+            <img
+              className="img-thumbnail mb-2"
+              style={{ width: '100px', height: '100px', borderRadius:'50px' }}
+              src={URL.createObjectURL(formData.Avatar)}
+              alt="Aperçu de l'avatar"
             />
-            {formData.Avatar && (
-              <div className='contact__file-preview img'>
-                <img className='img'  src={URL.createObjectURL(formData.Avatar)} alt="Aperçu de l'avatar" />
-                <span>{formData.Avatar.name}</span>
-              </div>
-            )}
-            <button className='contact__form__label width' onClick={handleUpload}>Télécharger</button>
           </div>
-
-          <div className='contact__form'>
-            <label className='contact__form__label' htmlFor='Biographie'>Biographie</label>
-            <textarea 
-            className='contact__form__label' 
-            type='text'
-            name="Biographie" 
-            value={formData.Biographie} 
-            onChange={handleInputChange} />
-          </div>
-          <div className='contact__form'>
-            <label className='contact__form__label width'>Rôle</label>
-            <select 
-            className='contact__form__label width ' 
-            name="Role" 
-            value={formData.Role} 
-            onChange={handleInputChange}>
-              <option className='contact__form__label' value="abonné">Abonné</option>
-              <option className='contact__form__label' value="éditeur">Éditeur</option>
-              <option className='contact__form__label' value="administrateur">Administrateur</option>
-            </select>
-          </div>
-          <button className='contact__form__label width' type='submit' onClick={handleInscription}>S'inscrire</button>
-        </form>
-      </div>
-    );
+        )}
+        <div className="col-md-6">
+          <label 
+          htmlFor="Biographie"
+          className="form-control bg-secondary text-white fw-bold mb-2"
+          >Biographie</label>
+          <textarea
+            className="form-control mb-2"
+            type="text"
+            name="Biographie"
+            value={formData.Biographie}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="col-md-6">
+          <label
+          className="form-control bg-secondary text-white fw-bold mb-2"
+          >Rôle</label>
+          <select
+            className="form-select mb-2"
+            name="Role"
+            value={formData.Role}
+            onChange={handleInputChange}
+            required
+          >
+            <option value="abonné">Abonné</option>
+            <option value="éditeur">Éditeur</option>
+            <option value="administrateur">Administrateur</option>
+          </select>
+        </div>
+        <div className="col-md-12">
+          <button className="btn btn-primary mb-2" type="submit" onClick={handleInscription}>
+            S'inscrire
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+  
+  
   }
 
 

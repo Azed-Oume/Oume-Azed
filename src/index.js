@@ -6,15 +6,14 @@ import { Acceuil, Conception, Blog, Cgu } from "./compenents/App/Router/Router.j
 import CardMaps from "./compenents/App/CardMaps/CardMaps.js";
 import ScrollToTopButton  from "./compenents/App/ScrollToTopButton/ScrollToTopButton.js";
 import App from './compenents/App/App';
+
+import 'bootstrap/dist/css/bootstrap.min.css'; // Inclure le fichier CSS de Bootstrap
+import 'bootstrap/dist/js/bootstrap.min.js'; // Inclure le fichier JavaScript de Bootstrap
+
+
 import './styles/reset.css';
-import './styles/headerFooter.css'
-import './styles/formSearch.css';
-import './styles/router.css';
-import './styles/card.css';
-import './styles/cardMaps.css';
 import './styles/ScrollToTopButton.css';
-import './styles/contactForm.css';
-import ContactForm from "./compenents/App/ContactForm/ContactForm.js";
+import ContactForm from "./compenents/App/ContactForm/Inscription/ContactForm.js";
 import Inscription from "./compenents/App/ContactForm/Inscription/Inscription.js";
 import ArticleForm from "./compenents/App/ContactForm/ArticleForm.js";
 import Connexion from "./compenents/App/ContactForm/Inscription/Connexion.js";
