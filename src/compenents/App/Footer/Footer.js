@@ -12,8 +12,8 @@ const Footer = () => {
     };
 
     return (
-        <footer className="footer">
-            <Navbar bg="dark" variant="dark" expand="lg" expanded={expanded}>
+        <footer className="footer mt-5  bg-dark ">
+            <Navbar  variant="dark" expand="lg" expanded={expanded}>
                 <div className="container">
                     <Navbar.Brand as={Link} to="/">
                         <img src={monLogo2} alt="Mon Logo" className="logo-img" style={{ width: "5rem" }} />
@@ -32,8 +32,8 @@ const Footer = () => {
                     </Navbar.Collapse>
                 </div>
             </Navbar>
-            <div className="container">
-                <p className="copyright">© Oumessaoud 2023. Tous droits réservés.</p>
+            <div className="container ">
+                <p className="text-center text-white  mb-3">© Oumessaoud 2023. Tous droits réservés.</p>
             </div>
         </footer>
     );

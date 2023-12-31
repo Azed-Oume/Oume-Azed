@@ -153,7 +153,7 @@ const Inscription = () => {
           />
         </div>
         {emailMatchError && (
-          <div className="col-md-12 text-danger mb-2">
+          <div className="col-md-12 fs-4 fw-bold text-dark mb-2">
             Les adresses email ne correspondent pas.
           </div>
         )}
@@ -188,7 +188,7 @@ const Inscription = () => {
           />
         </div>
         {passwordMatchError && (
-          <div className="col-md-12 text-danger mb-2">
+          <div className="col-md-12 fs-4 fw-bold text-dark mb-2">
             Les mots de passe ne correspondent pas.
           </div>
         )}

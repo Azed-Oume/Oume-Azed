@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ApiSearch from '../App/ApiSearch/ApiSearch';
+import formatPopulation from '../Item/formatPopulation';
 
 const FormSearch = ({ items }) => {
     const [showFormSearch, setShowFormSearch] = useState(false);
@@ -45,17 +46,18 @@ const FormSearch = ({ items }) => {
     };
 
     return (
-        <div className="country__form">
-            <h2 className="country__form__title">Ma commune ...</h2>
-            <div className="country__form__search">
-                <p className="country__form__content option" onClick={() => handleOptionClick('Recherche par ville:')}>Recherche par ville :</p>
-                <p className="country__form__content option" onClick={() => handleOptionClick('Recherche par code-postal :')}>Recherche par code-postal :</p>
-                <p className="country__form__content option" onClick={() => handleOptionClick('Recherche par departement :')}>Recherche par departement :</p>
+        <div className="container bg-secondary mb-4 p-4 rounded">
+            <h2 className="h2 text-center bg-secondary text-white fw-bold mb-2">Ma commune ...</h2>
+            <div className="container text-center ">
+                <button className="btn btn-primary text-center m-2" onClick={() => handleOptionClick('Recherche par ville:')}>Recherche par ville :</button>
+                <button className="btn btn-primary text-center m-2" onClick={() => handleOptionClick('Recherche par code-postal :')}>Recherche par code-postal :</button>
+                <button className="btn btn-primary text-center m-2" onClick={() => handleOptionClick('Recherche par departement :')}>Recherche par departement :</button>
             </div>
             {showFormSearch && (
-                <form className="country__form__search" onSubmit={handleSubmit}>
-                    <div className="country__form__content">
+                <form className="form-control bg-secondary text-white fw-bold mb-2 text-center" onSubmit={handleSubmit}>
+                    <div className="m-1 col-4 mx-auto">
                         <input 
+                            className="form-control "
                             id='search-input' 
                             ref={inputRef} // Associer la référence à l'élément input
                             type="search"
@@ -63,31 +65,20 @@ const FormSearch = ({ items }) => {
                             onChange={handleChange}
                             value={search}
                         />
-                        <button  type="submit">Lancer Votre Recherche</button>
+                        <button className='btn btn-success m-2' type="submit">Lancer Votre Recherche</button>
                     </div>
                 </form>
             )}
 
-
             {searchResults.length > 0 && (
-                <div className="search-results country__form__search__result">
-                    <h3 className='country__form__search__result result'>Résultats de la recherche :</h3>
-                    <div className='country__form__search'>
-                    <ApiSearch card={searchResults} />
-                    </div>
-                    {/* <div >
-                        {searchResults.map((result, index) => (
-                            <ul className="country__form__search__result result__country" key={index}>
-                                <li> Ville : {result.nom}</li>
-                                <li> Code Postal : {result.codesPostaux.join(", ")}</li>
-                                <li> Département : {result.codeDepartement}</li>
-                                <li> Population : {formatPopulation(result.population)}</li>
-                                <li>
-                                    ok
-                                </li>
-                            </ul>
-                        ))}
-                    </div> */}
+                <div className='p-2 bg-white '>
+                    <h3 className='h3 text-center bg-secondary text-white fw-bold mb-2 rounded '>Résultats de la recherche :</h3>
+                        <div className='bg-info col-12'>
+                            
+                            <div className='row mx-auto rounded-5 bg-white col-4 text-white fw-bold mb-2'>
+                                <ApiSearch searchCard={searchResults} />
+                            </div>
+                        </div>
                 </div>
             )}
         </div>

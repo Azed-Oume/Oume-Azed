@@ -29,6 +29,11 @@ const Header = () => {
                     </Nav>
                 </Navbar.Collapse>
             </div>
+                <Navbar.Collapse id="navbarNav">
+                    <Nav className="ml-auto fw-bold text-center" onClick={closeMenu}>
+                        <Nav.Link className='text-rigth' as={Link} to="/Connexion">Connexion</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
         </Navbar>
     );
 }

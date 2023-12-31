@@ -1,22 +1,22 @@
 import ApiCardSearch from './ApiCardSearch/ApiCardSearch';
 import formatPopulation from '../../Item/formatPopulation.js';
-const ApiSearch = ({card}) => {
+const ApiSearch = ({searchCard}) => {
     // console.log(card);
-    if (!card) {
+    if (!searchCard || !Array.isArray(searchCard) ) {
         return null;
     }
     return(
         <>
-        {card.map((listCard, index) => {
+        {searchCard.map((listCard, index) => {
             console.log(listCard);
             return(
-                <ApiCardSearch
-                key={index}
-                ville={listCard.nom}
-                code_postal={listCard.code}
-                departement={listCard.codeDepartement}
-                population={formatPopulation(listCard.population)} 
-                />
+                        <ApiCardSearch
+                        key={index}
+                        ville={listCard.nom}
+                        code_postal={listCard.code}
+                        departement={listCard.codeDepartement}
+                        population={formatPopulation(listCard.population)} 
+                        />
             )
         })}
         </>
