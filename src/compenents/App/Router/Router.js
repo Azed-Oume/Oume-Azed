@@ -40,41 +40,41 @@ const Conception = () => {
 
 const Blog = () => {
   return (
-    <div className="container bg-secondary p-4 rounded-4  mx-auto">
-      <h2 className="text-center bg-secondary text-white col-12 mx-auto">Bienvenue sur mon Blog</h2>
-      <section className="row col-12 mx-auto">
-        <div className="row col-8 mx-auto">
-          <h3 className="text-center bg-secondary text-white col-12 mx-auto mx-auto">Mon CV</h3>
-          <div className="row col-12 text-center mx-auto">
-            <div className="mx-auto col-6">
-              <article className="motivation">
-                <a className="btn btn-primary btn-lg btn-block " href="https://1drv.ms/w/s!AleRy1V4c5HpomINf18YpxRI_TEO?e=dlQGS8" target="_blank">
-                  Consulter la Formation professionnelle
-                </a>
-              </article>
+        <div className="container bg-secondary  rounded-4 pb-3 mx-auto">
+          <h2 className="text-center  text-white ">Bienvenue sur mon Blog</h2>
+          {/* <section className="row col-12 mx-auto"> */}
+            <div className="row mx-auto border border-2">
+              <h3 className="text-center bg-secondary text-white mx-auto mx-auto">Mon CV</h3>
+              <div className="row pb-3 text-center mx-auto">
+                <div className="pb-3">
+                  <article className="motivation">
+                    <a className="btn btn-primary btn-lg btn-block " href="https://1drv.ms/w/s!AleRy1V4c5HpomINf18YpxRI_TEO?e=dlQGS8" target="_blank">
+                      Consulter la Formation professionnelle
+                    </a>
+                  </article>
+                </div>
+                <div className=" ">
+                  <article className="motivation">
+                    <a className="btn btn-primary btn-lg btn-block " href="https://1drv.ms/w/s!AleRy1V4c5HpomHV4-hmVTwBJS8f?e=ymydLM" target="_blank">
+                      Consulter l'expérience Professionnelle
+                    </a>
+                  </article>
+                </div>
+                
+              </div>
             </div>
-            <div className="mx-auto col-6">
-              <article className="motivation">
-                <a className="btn btn-primary btn-lg btn-block " href="https://1drv.ms/w/s!AleRy1V4c5HpomHV4-hmVTwBJS8f?e=ymydLM" target="_blank">
-                  Consulter l'expérience Professionnelle
-                </a>
-              </article>
+            <div className='mt-3 row  mx-auto border border-2'>
+            <h3 className="text-center bg-secondary text-white col-12 mx-auto">Lettre de motivation</h3>
+            <div className="text-center mx-auto pb-3 ">
+                  <article className="motivation">
+                    <a className="btn btn-primary btn-lg btn-block " href="https://1drv.ms/w/s!AleRy1V4c5HpokokMkTCTUfMiSnM?e=vWURX2" target="_blank">
+                      Lettre de motivation
+                    </a>
+                  </article>
+                </div>
             </div>
-            
-          </div>
+          {/* </section> */}
         </div>
-        <div className=' row col-4 mx-auto'>
-        <h3 className="text-center bg-secondary text-white col-12 mx-auto">Lettre de motivation</h3>
-        <div className="col-4 text-center mx-auto">
-              <article className="motivation">
-                <a className="btn btn-primary btn-lg btn-block " href="https://1drv.ms/w/s!AleRy1V4c5HpokokMkTCTUfMiSnM?e=vWURX2" target="_blank">
-                  Lettre de motivation
-                </a>
-              </article>
-            </div>
-        </div>
-      </section>
-    </div>
   );
 };
 
@@ -124,7 +124,7 @@ const Cgu = () => {
             Pour toute question concernant les présentes CGU, veuillez nous contacter à azed92390@hotmail.fr.
           </p>
           <p className="border border-2 rounded-3 p-2 mb-4">
-            Dernière mise à jour : 27 août 2023.
+            Dernière mise à jour : 01 Janvier 2024.
           </p>
         </div>
       </div>

@@ -75,7 +75,7 @@ const FormSearch = ({ items }) => {
                     <h3 className='h3 text-center bg-secondary text-white fw-bold mb-2 rounded '>Résultats de la recherche :</h3>
                         <div className='bg-info col-12'>
                             
-                            <div className='row mx-auto rounded-5 bg-white col-4 text-white fw-bold mb-2'>
+                            <div className='row mx-auto rounded-5 bg-white col-lg-4 col-md-6 col-xs-4 text-white fw-bold mb-2'>
                                 <ApiSearch searchCard={searchResults} />
                             </div>
                         </div>
