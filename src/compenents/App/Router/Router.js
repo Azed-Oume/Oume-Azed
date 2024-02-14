@@ -2,21 +2,18 @@ import React from 'react';
 
 const Acceuil = () => {
   return (
-    <div className="container mt-4">
-      <h2 className="text-center bg-secondary text-white col-12 mx-auto">Bienvenue sur le Site de ma Ville</h2>
-      <div className="row col-12 mx-auto ">
-        <div className=" bg-secondary text-white fs-4 fw-bold p-3 mx-auto">
-          <p>
+    <section className="container mt-4">
+      <h2 className="h2 text-center bg-secondary text-white  mx-auto p-2">Bienvenue sur le Site de ma Ville</h2>
+      <article className="row col-12 mx-auto bg-secondary text-white fs-4 fw-bold p-3">
+          <p className="border border-2 rounded-3 p-2 mb-3 text-white fs-5">
             Argenteuil, une ville rayonnante en plein cœur de la région parisienne, se distingue par son engagement en faveur d'un environnement plus vert et durable. Avec ses vastes espaces verts et ses initiatives écologiques, la ville offre un havre de tranquillité et de fraîcheur à ses habitants. Nichée entre les rives de la Seine et les collines boisées, Argenteuil dévoile une véritable oasis naturelle où il fait bon vivre. Les parcs soigneusement entretenus, tels que le Parc des Berges et le Parc de la Faisanderie, offrent des retraites paisibles pour se détendre en harmonie avec la nature. En se promenant dans les allées ombragées, on peut ressentir le souffle revigorant de l'air pur et profiter d'une parenthèse verte au sein de l'agitation urbaine.
           </p>
-        </div>
-        <div className=" bg-secondary text-white fs-4 fw-bold p-3 mx-auto">
-          <p>
+        
+          <p className="border border-2 rounded-3 p-2 text-white fs-5">
             Mais ce n'est pas tout : Argenteuil se distingue par sa vision avant-gardiste en matière de développement durable. La ville investit dans des projets innovants pour promouvoir les transports en commun, les pistes cyclables et les modes de déplacement doux. Elle encourage également la participation citoyenne à travers des actions de sensibilisation et de nettoyage de l'environnement. Grâce à son engagement en faveur de la préservation de la biodiversité et de la création d'espaces verts conviviaux, Argenteuil se profile comme un modèle inspirant pour les autres villes, montrant que l'équilibre entre urbanisme et nature est possible.
-          </p>
-        </div>
-      </div>
-    </div>
+          </p>        
+      </article>
+    </section>
   );
 };
 
@@ -41,21 +38,21 @@ const Conception = () => {
 const Blog = () => {
   return (
         <div className="container bg-secondary  rounded-4 pb-3 mx-auto">
-          <h2 className="text-center  text-white ">Bienvenue sur mon Blog</h2>
+          <h2 className="h2 text-center  text-white p-2 ">Bienvenue sur mon Blog</h2>
           {/* <section className="row col-12 mx-auto"> */}
             <div className="row mx-auto border border-2">
-              <h3 className="text-center bg-secondary text-white mx-auto mx-auto">Mon CV</h3>
+              <h3 className="h3 text-center bg-secondary text-white mx-auto mx-auto">Mon CV</h3>
               <div className="row pb-3 text-center mx-auto">
                 <div className="pb-3">
                   <article className="motivation">
-                    <a className="btn btn-primary btn-lg btn-block " href="https://1drv.ms/w/s!AleRy1V4c5HpomINf18YpxRI_TEO?e=dlQGS8" target="_blank">
+                    <a className="btn btn-primary" href="https://1drv.ms/w/s!AleRy1V4c5HpomINf18YpxRI_TEO?e=dlQGS8" target="_blank">
                       Consulter la Formation professionnelle
                     </a>
                   </article>
                 </div>
                 <div className=" ">
                   <article className="motivation">
-                    <a className="btn btn-primary btn-lg btn-block " href="https://1drv.ms/w/s!AleRy1V4c5HpomHV4-hmVTwBJS8f?e=ymydLM" target="_blank">
+                    <a className="btn btn-primary" href="https://1drv.ms/w/s!AleRy1V4c5HpomHV4-hmVTwBJS8f?e=ymydLM" target="_blank">
                       Consulter l'expérience Professionnelle
                     </a>
                   </article>
@@ -64,10 +61,10 @@ const Blog = () => {
               </div>
             </div>
             <div className='mt-3 row  mx-auto border border-2'>
-            <h3 className="text-center bg-secondary text-white col-12 mx-auto">Lettre de motivation</h3>
+            <h3 className="h3 text-center bg-secondary text-white col-12 mx-auto">Lettre de motivation</h3>
             <div className="text-center mx-auto pb-3 ">
                   <article className="motivation">
-                    <a className="btn btn-primary btn-lg btn-block " href="https://1drv.ms/w/s!AleRy1V4c5HpokokMkTCTUfMiSnM?e=vWURX2" target="_blank">
+                    <a className="btn btn-primary" href="https://1drv.ms/w/s!AleRy1V4c5HpokokMkTCTUfMiSnM?e=vWURX2" target="_blank">
                       Lettre de motivation
                     </a>
                   </article>
@@ -81,7 +78,7 @@ const Blog = () => {
 const Cgu = () => {
     return (
       <div className="container mt-4 pt-4 bg-white pb-4 mb-4">
-        <h2 className="text-center border border-2 rounded-3 p-2">Conditions Générales d'Utilisation</h2>
+        <h2 className="h2 text-center border border-2 rounded-3 p-2">Conditions Générales d'Utilisation</h2>
         <div className="container border border-3 rounded-3 mt-4 ">
           <h5 className="fw-bold">Article 1: CGU</h5>
           <p className="border border-2 rounded-3 p-2">

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import monLogo2 from '../../images/my-logo-fondnoir.png';
+import monLogo2 from '../../images/my_logo_fondnoir.png';
 import { useState } from 'react';
 
 const Footer = () => {

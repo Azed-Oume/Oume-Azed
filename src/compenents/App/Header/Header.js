@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import monLogo2 from '../../images/my-logo-fondnoir.png';
+import monLogo2 from '../../images/my_logo_fondnoir.png';
 import { useState } from 'react';
 
 const Header = () => {
@@ -24,7 +24,7 @@ const Header = () => {
                 <Navbar.Collapse id="navbarNav">
                     <Nav className="ml-auto fw-bold " onClick={closeMenu}>
                         <Nav.Link className='text-rigth' as={Link} to="/">Accueil</Nav.Link>
-                        <Nav.Link className='text-rigth' as={Link} to="/Recherche">Recherche Votre Ville</Nav.Link>
+                        <Nav.Link className='text-rigth' as={Link} to="/Recherche">Rechercher Votre Ville</Nav.Link>
                         <Nav.Link className='text-rigth' as={Link} to="/Conception">Conception</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

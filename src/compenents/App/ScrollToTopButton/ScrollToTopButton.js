@@ -33,7 +33,7 @@ const ScrollToTopButton = () => {
         onMouseOver={(e) => e.target.style.boxShadow = '5px 5px 5px 5px rgba(3, 100, 24, 0.9)'}
         onMouseOut={(e) => e.target.style.boxShadow = '5px 5px 5px 5px rgba(3, 100, 24, 0.3)'}
       >
-        Revenir en haut
+        Revenir en haut 
       </button>
     </div>
   );

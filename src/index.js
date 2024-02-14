@@ -12,6 +12,8 @@ import 'bootstrap/dist/js/bootstrap.min.js'; // Inclure le fichier JavaScript de
 
 
 import './styles/reset.css';
+import 'animate.css';
+
 import ContactForm from "./compenents/App/ContactForm/Inscription/ContactForm.js";
 import Inscription from "./compenents/App/ContactForm/Inscription/Inscription.js";
 import ArticleForm from "./compenents/App/ContactForm/ArticleForm.js";
