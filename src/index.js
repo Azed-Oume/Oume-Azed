@@ -22,7 +22,7 @@ import Inscription from "./compenents/App/ContactForm/Inscription/Inscription.js
 import ArticleForm from "./compenents/App/ContactForm/ArticleForm.js";
 import Connexion from "./compenents/App/ContactForm/Inscription/Connexion.js";
 import Star from "./compenents/App/Animated/Star.js";
-
+import WhatsAppButton from "./compenents/AuthSecure/WatsAppButton.js";
 
 
 
@@ -45,6 +45,7 @@ root.render(
             <Route path="/form" element={<ArticleForm/>} />
         </Routes>
         <ScrollToTopButton />
+        <WhatsAppButton phoneNumber="+33768221452" />
     <Footer />
 </BrowserRouter> 
 );
