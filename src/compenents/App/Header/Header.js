@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import monLogo2 from '../../images/my_logo_fondnoir.png';
+import logofondnoir from "../../images/logofondnoir.png";
 import { useState } from 'react';
 
 const Header = () => {
@@ -12,10 +12,11 @@ const Header = () => {
     };
 
     return (
-        <Navbar bg="dark" variant="dark" expand="lg" expanded={expanded}>
+    <>
+        <Navbar bg="black" variant="dark" expand="lg" expanded={expanded}>
             <div className="container">
                 <Navbar.Brand as={Link} to="/">
-                    <img src={monLogo2} alt="Mon Logo" className="logo-img" style={{ width: "5rem" }} />
+                    <img src={logofondnoir} alt="Mon Logo" className="logo-img" style={{ width: "5rem" }} />
                 </Navbar.Brand>
                 <Navbar.Toggle
                     onClick={() => setExpanded(!expanded)}
@@ -35,6 +36,9 @@ const Header = () => {
                     </Nav>
                 </Navbar.Collapse>
         </Navbar>
+           
+    </>
+    
     );
 }
 

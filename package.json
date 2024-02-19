@@ -37,7 +37,8 @@
     "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
-    "validator": "^13.11.0"
+    "validator": "^13.11.0",
+    "wave-text-animation": "^1.0.4"
   },
   "parcel": {
     "extends": "@parcel/config-default",

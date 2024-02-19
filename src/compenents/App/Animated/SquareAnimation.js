@@ -6,11 +6,13 @@ import my_fish from '../../images/my_fish.png';
 import poisson_rouge from '../../images/poisson_rouge.png';
 import requin from '../../images/requin.png';
 import ocean from '../../images/ocean.png';
-import dev_oume from '../../images/dev_oume.png';
+// import waveTextAnimation from "wave-text-animation";
+
+
 
 const SquareAnimation = () => {
     
-    
+    // waveTextAnimation("DEV-OUME.COM");
 
     return (
         <>
@@ -28,6 +30,7 @@ const SquareAnimation = () => {
                 <img className='fish rounded-3 ' src={my_fish} alt="Mon poisson rouge traverse de gauche vers la droite" />
             </div>
         </div>
+        {/* <div id="text-container" class="text-container "></div> */}
         </>
     );
 }

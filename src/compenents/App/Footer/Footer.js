@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import monLogo2 from '../../images/my_logo_fondnoir.png';
+import logofondblanc from "../../images/logofondblanc.png";
 import { useState } from 'react';
 
 const Footer = () => {
@@ -12,11 +12,12 @@ const Footer = () => {
     };
 
     return (
-        <footer className="footer mt-5  bg-dark ">
-            <Navbar  variant="dark" expand="lg" expanded={expanded}>
+        <>
+        <footer className="footer mt-5  bg-white ">
+            <Navbar  variant="black" expand="lg" expanded={expanded}>
                 <div className="container">
                     <Navbar.Brand as={Link} to="/">
-                        <img src={monLogo2} alt="Mon Logo" className="logo-img" style={{ width: "5rem" }} />
+                        <img src={logofondblanc} alt="Mon Logo" className="logo-img" style={{ width: "5rem" }} />
                     </Navbar.Brand>
                     <Navbar.Toggle
                         onClick={() => setExpanded(!expanded)}
@@ -33,9 +34,10 @@ const Footer = () => {
                 </div>
             </Navbar>
             <div className="container ">
-                <p className="text-center text-white  mb-3">© Oumessaoud 2023. Tous droits réservés.</p>
+                <p className="text-center text-black  mb-3">© Oumessaoud 2023. Tous droits réservés.</p>
             </div>
         </footer>
+        </>
     );
 }
 

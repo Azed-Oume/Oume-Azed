@@ -66,8 +66,8 @@ function ContactForm() {
   };
 
   return (
-    <div className="container bg-secondary mt-4 p-4 rounded">
-      <h2 className="text-white">Contactez-nous</h2>
+    <div className="container graylogo col-md-10 mt-4 mb-4 p-4 rounded-4">
+      <h2 className="h2 text-center graylogo rounded-4 text-white  mx-auto p-2">Formulaire de Contact</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label className="form-label text-white" htmlFor="name">

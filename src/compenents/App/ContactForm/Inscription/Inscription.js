@@ -75,15 +75,17 @@ const Inscription = () => {
 
   
   return (
-    <div className="container bg-secondary mt-4 pt-1">
-      <form className="row mb-2 mt-4" method="POST" onSubmit={handleSubmit}>
-        <div className="col-md-4">
+    <>
+    <div className="container graylogo col-md-10 mt-4 mb-4 rounded-4 pt-1">
+    <h2 className="h2 text-center graylogo rounded-4 text-white  mx-auto p-2">Formulaire d'Inscription :</h2>
+      <form className="row mb-2 mt-4 mx-auto" method="POST" onSubmit={handleSubmit}>
+        <div className="col-md-4 mx-auto">
           <label 
           htmlFor="Nom"
-          className="form-control bg-secondary text-white fw-bold mb-2"
+          className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
           >Nom</label>
           <input
-            className="form-control mb-2"
+            className="form-control mb-2 mx-auto"
             autoComplete="family-name"
             type="text"
             name="Nom"
@@ -92,13 +94,13 @@ const Inscription = () => {
             required
           />
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4 mx-auto">
           <label 
           htmlFor="Prenom"
-          className="form-control bg-secondary text-white fw-bold mb-2"
+          className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
           >Prenom</label>
           <input
-            className="form-control mb-2"
+            className="form-control mb-2 mx-auto"
             autoComplete="given-name"
             type="text"
             name="Prenom"
@@ -107,13 +109,13 @@ const Inscription = () => {
             required
           />
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4 mx-auto">
           <label 
           htmlFor="Pseudo"
-          className="form-control bg-secondary text-white fw-bold mb-2"
+          className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
           >Pseudo</label>
           <input
-            className="form-control mb-2"
+            className="form-control mb-2 mx-auto"
             autoComplete="username"
             type="text"
             name="Pseudo"
@@ -122,13 +124,13 @@ const Inscription = () => {
             required
           />
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6 mx-auto">
           <label 
           htmlFor="AdresseEmail"
-          className="form-control bg-secondary text-white fw-bold mb-2"
+          className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
           >Adresse Email</label>
           <input
-            className="form-control mb-2"
+            className="form-control mb-2 mx-auto"
             autoComplete="email"
             type="text"
             name="AdresseEmail"
@@ -137,13 +139,13 @@ const Inscription = () => {
             required
           />
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6 mx-auto">
           <label 
           htmlFor="ConfirmerAdresseEmail"
-          className="form-control bg-secondary text-white fw-bold mb-2"
+          className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
           >Confirmer Adresse Email</label>
           <input
-            className="form-control mb-2"
+            className="form-control mb-2 mx-auto"
             autoComplete="email"
             type="text"
             name="ConfirmerAdresseEmail"
@@ -157,13 +159,13 @@ const Inscription = () => {
             Les adresses email ne correspondent pas.
           </div>
         )}
-        <div className="col-md-6">
+        <div className="col-md-6 mx-auto">
           <label 
           htmlFor="MotDePasse"
-          className="form-control bg-secondary text-white fw-bold mb-2"
+          className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
           >Mot de Passe</label>
           <input
-            className="form-control mb-2"
+            className="form-control mb-2 mx-auto"
             autoComplete="new-password"
             type="password"
             name="MotDePasse"
@@ -172,13 +174,13 @@ const Inscription = () => {
             required
           />
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6 mx-auto">
           <label 
           htmlFor="ConfirmerMotDePasse"
-          className="form-control bg-secondary text-white fw-bold mb-2"
+          className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
           >Confirmer Mot de Passe</label>
           <input
-            className="form-control mb-2"
+            className="form-control mb-2 mx-auto"
             autoComplete="new-password"
             type="password"
             name="ConfirmerMotDePasse"
@@ -192,13 +194,13 @@ const Inscription = () => {
             Les mots de passe ne correspondent pas.
           </div>
         )}
-        <div className="col-md-6">
+        <div className="col-md-6 mx-auto">
           <label 
           htmlFor="Avatar"
-          className="form-control bg-secondary text-white fw-bold mb-2"
+          className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
           >Avatar</label>
           <input
-            className="form-control-file mb-2"
+            className="form-control-file mb-2 mx-auto"
             type="file"
             name="Avatar"
             onChange={handleFileInputChange}
@@ -206,34 +208,34 @@ const Inscription = () => {
           />
         </div>
         {formData.Avatar && (
-          <div className="col-md-6">
+          <div className="col-md-6 mx-auto">
             <img
-              className="img-thumbnail mb-2"
+              className="img-thumbnail mb-2 mx-auto"
               style={{ width: '100px', height: '100px', borderRadius:'50px' }}
               src={URL.createObjectURL(formData.Avatar)}
               alt="Aperçu de l'avatar"
             />
           </div>
         )}
-        <div className="col-md-6">
+        <div className="col-md-6 mx-auto">
           <label 
           htmlFor="Biographie"
-          className="form-control bg-secondary text-white fw-bold mb-2"
+          className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
           >Biographie</label>
           <textarea
-            className="form-control mb-2"
+            className="form-control mb-2 mx-auto"
             type="text"
             name="Biographie"
             value={formData.Biographie}
             onChange={handleInputChange}
           />
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6 mx-auto">
           <label
-          className="form-control bg-secondary text-white fw-bold mb-2"
+          className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
           >Rôle</label>
           <select
-            className="form-select mb-2"
+            className="form-select mb-2 mx-auto"
             name="Role"
             value={formData.Role}
             onChange={handleInputChange}
@@ -244,13 +246,14 @@ const Inscription = () => {
             <option value="administrateur">Administrateur</option>
           </select>
         </div>
-        <div className="col-md-12">
-          <button className="btn btn-primary mb-2" type="submit" onClick={handleInscription}>
+        <div className="col-md-12 mx-auto">
+          <button className="btn btn-primary mb-2 mx-auto" type="submit" onClick={handleInscription}>
             S'inscrire
           </button>
         </div>
       </form>
     </div>
+    </>
   );
   
   

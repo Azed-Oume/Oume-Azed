@@ -43,17 +43,17 @@ const Connexion = () => {
   };
 
   return (
-    <div className="container bg-secondary mb-4 p-4 rounded">
+    <div className="container graylogo col-md-10 mt-4 mb-4 p-4 rounded-4 ">
       <h2 className="h2 text-center bg-secondary text-white fw-bold mb-2">Connexion</h2>
-      <form className="row mb-2" method="POST" onSubmit={handleSubmit}>
-        <div className="mb-3 col-md-6">
+      <form className="row mb-2 mx-auto" method="POST" onSubmit={handleSubmit}>
+        <div className="mb-3 col-md-6 ">
           <label 
           className="form-control bg-secondary text-white fw-bold mb-2"
           htmlFor="Pseudo">
             Pseudo
           </label>
           <input
-            className="form-control"
+            className="form-control mx-auto" 
             autoComplete="username"
             type="text"
             name="Pseudo"
@@ -61,14 +61,14 @@ const Connexion = () => {
             onChange={handleInputChange}
           />
         </div>
-        <div className="mb-3 col-md-6">
+        <div className="mb-3 col-md-6 mx-auto">
           <label 
           className="form-control bg-secondary text-white fw-bold mb-2"
           htmlFor="MotDePasse">
             Mot de Passe
           </label>
           <input
-            className="form-control"
+            className="form-control mx-auto"
             autoComplete="current-password"
             type="password"
             name="MotDePasse"
@@ -81,8 +81,8 @@ const Connexion = () => {
             <div className="text-danger">Pseudo ou mot de passe incorrect.</div>
           )}
         </div>
-        <div className="mb-3">
-          <button className="btn btn-primary" type="submit">
+        <div className="mb-3 mx-auto">
+          <button className="btn btn-primary mx-auto" type="submit">
             Se connecter
           </button>
         </div>

@@ -1,3 +1,5 @@
+
+
 .is-active{
     animation: animatedCard 3s cubic-bezier(0,1.65,.83,.67)forwards;
 
@@ -69,3 +71,15 @@
     100% { transform: translateY(+360px) translateX(1000px); }
     /* 75% { transform: translateY(-20px) translateX(100%); } */
 }
+
+
+
+.pTwo span {
+    transform: translateY(100%) rotateX(-90deg);
+  }
+  .text-container:hover .pOne span {
+    transform: translateY(-100%) rotateX(-90deg);
+  }
+  .text-container:hover .pTwo span {
+    transform: translateY(0%) rotateX(0deg);
+  }
