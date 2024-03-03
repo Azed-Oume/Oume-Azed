@@ -27,12 +27,12 @@ const WhatsAppButton = ({ phoneNumber }) => {
             style={{ opacity: isVisible ? '0.9' : '0', transition: 'opacity 0.6s', zIndex: '10' }}
         >
             <button 
-                className='btn btn-secondary scroll'
+                className='btn btn-secondary fw-bold scroll'
                 onClick={handleClick}
                 style={{
                     boxShadow: '5px 5px 5px 5px rgba(3, 100, 24, 0.5)',
                     background: 'rgba(3, 100, 24, 0.5)',
-                    color: 'white',
+                    color: 'black',
                     transition: 'box-shadow 0.3s'
                 }}
                 onMouseOver={(e) => e.target.style.boxShadow = '5px 5px 5px 5px rgba(3, 100, 24, 0.9)'}

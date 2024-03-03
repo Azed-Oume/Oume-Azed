@@ -17,12 +17,14 @@ import '../src/styles/styles_perso.css'; // Inclure le fichier
 import './styles/reset.css';
 import './compenents/App/Animated/animated.css'; // Inclure le fichier
 
-import ContactForm from "./compenents/App/ContactForm/Inscription/ContactForm.js";
+import ComentaireForm from "./compenents/App/ContactForm/Inscription/ComentaireForm.js";
+import Contact from "./compenents/App/ContactForm/Inscription/Contact.js";
 import Inscription from "./compenents/App/ContactForm/Inscription/Inscription.js";
 import ArticleForm from "./compenents/App/ContactForm/ArticleForm.js";
 import Connexion from "./compenents/App/ContactForm/Inscription/Connexion.js";
 import Star from "./compenents/App/Animated/Star.js";
 import WhatsAppButton from "./compenents/AuthSecure/WatsAppButton.js";
+import ComentaireForm from "./compenents/App/ContactForm/Inscription/ComentaireForm.js";
 
 
 
@@ -36,7 +38,8 @@ root.render(
         <Routes>
             <Route path="/Inscription" element={<Inscription/>}/>
             <Route path="/Connexion" element={<Connexion/>}/>
-            <Route path="/Contact" element={<ContactForm />} />
+            <Route path="/Comentaire" element={<ComentaireForm />} />
+            <Route path="/Contact" element={<Contact />} />
             <Route path="/" element={<Acceuil />} />
             <Route path="/Recherche" element={<App />} />
             <Route path="/Conception" element={<Conception />} />

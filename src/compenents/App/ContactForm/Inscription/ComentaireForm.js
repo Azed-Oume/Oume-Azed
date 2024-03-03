@@ -2,18 +2,19 @@ import React, { useState } from 'react';
 import AuthService from '../../AuthService/AuthService.js';
 import { useNavigate } from 'react-router-dom';
 
-function ContactForm() {
+function ComentaireForm() {
   const navigate = useNavigate();
-  const [state, setState] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
+  const [formData, setFormData] = useState({
+    pseudo: '',
+    adresse_email: '',
+    article_associe: '',
+    titre: '',
+    contenu: '',
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setState({ ...state, [name]: value });
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e) => {
@@ -24,7 +25,7 @@ function ContactForm() {
       if (userRole === 'abonné' || userRole === 'éditeur') {
         // L'utilisateur a le rôle approprié pour ajouter un commentaire
         // Envoie le commentaire au serveur
-        submitComment(state)
+        submitComment(formData)
           .then((response) => {
             console.log('Commentaire ajouté avec succès :', response);
             // Mettez à jour l'interface utilisateur pour afficher le commentaire
@@ -67,61 +68,59 @@ function ContactForm() {
 
   return (
     <div className="container graylogo col-md-10 mt-4 mb-4 p-4 rounded-4">
-      <h2 className="h2 text-center graylogo rounded-4 text-white  mx-auto p-2">Formulaire de Contact</h2>
+      <h2 className="h2 text-center graylogo rounded-4 text-white  mx-auto p-2">Rédiger votre commentaire</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label className="form-label text-white" htmlFor="name">
-            Nom :
+          <label className="form-label text-white" htmlFor="pseudo">
+            Pseudo :
           </label>
           <input
             className="form-control"
             autoComplete="family-name"
             type="text"
-            id="name"
-            name="name"
-            value={state.name}
+            name="pseudo"
+            value={formData.pseudo}
             onChange={handleChange}
             required
           />
         </div>
         <div className="mb-3">
-          <label className="form-label text-white" htmlFor="email">
+          <label className="form-label text-white" htmlFor="adresse_email">
             Email :
           </label>
           <input
             className="form-control"
             autoComplete="email"
             type="email"
-            id="email"
-            name="email"
-            value={state.email}
+            name="adresse_email"
+            value={formData.adresse_email}
             onChange={handleChange}
             required
           />
         </div>
         <div className="mb-3">
-          <label className="form-label text-white" htmlFor="subject">
+          <label className="form-label text-white" htmlFor="titre">
             Sujet :
           </label>
           <input
             className="form-control"
             type="text"
-            id="subject"
-            name="subject"
-            value={state.subject}
+            id="titre"
+            name="titre"
+            value={formData.titre}
             onChange={handleChange}
             required
           />
         </div>
         <div className="mb-3">
-          <label className="form-label text-white" htmlFor="message">
-            Message :
+          <label className="form-label text-white" htmlFor="contenu">
+            Texte :
           </label>
           <textarea
             className="form-control"
-            id="message"
-            name="message"
-            value={state.message}
+            id="contenu"
+            name="contenu"
+            value={formData.contenu}
             onChange={handleChange}
             rows="4"
             required
@@ -137,4 +136,4 @@ function ContactForm() {
   );
 }
 
-export default ContactForm;
+export default ComentaireForm;

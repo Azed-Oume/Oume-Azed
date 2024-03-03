@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import validator from 'validator';
 import bcrypt from 'bcryptjs'; // Utilisation de bcrypt pour hacher le mot de passe
+import { useNavigate } from 'react-router-dom';
 
 const Connexion = () => {
   const [state, setState] = useState({
@@ -14,6 +15,9 @@ const Connexion = () => {
     const value = e.target.value;
     setState({ ...state, [name]: value });
   };
+
+  
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,6 +45,10 @@ const Connexion = () => {
       console.log('Mot de passe haché :', hashedPassword);
     });
   };
+
+  const handleClick = (e) => {
+    navigate("/Inscription")
+  }
 
   return (
     <div className="container graylogo col-md-10 mt-4 mb-4 p-4 rounded-4 ">
@@ -87,6 +95,17 @@ const Connexion = () => {
           </button>
         </div>
       </form>
+      <div className="mb- mx-auto mb-3 col-md-6 ">
+          <p className="form-control bg-secondary text-white fw-bold mb-2 ">
+            Vous n'avez pas de Compte !
+          </p>
+          <button 
+          className="btn btn-primary mx-auto" 
+          type="submit"
+          onClick={handleClick}>
+            Créez un Compte
+          </button>
+        </div>
     </div>
   );
 };

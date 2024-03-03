@@ -28,7 +28,8 @@ const Footer = () => {
                             <Nav.Link as={Link} to="/Cgu" className="text-right" aria-label="Page des Conditions générales d'utilisation">C-G-U</Nav.Link>
                             <Nav.Link as={Link} to="/Blog" className="text-right" aria-label="Page du blog">Blog</Nav.Link>
                             <Nav.Link href="https://www.facebook.com" className="text-right" rel="noopener noreferrer" target="_blank" aria-label="Page Facebook officielle">Facebook</Nav.Link>
-                            <Nav.Link as={Link} to="/Contact" className="text-right" aria-label="Page de contact">Laisser un Commentaire</Nav.Link>
+                            <Nav.Link as={Link} to="/Comentaire" className="text-right" aria-label="Page pour laisser un commentaire.">Laisser un Commentaire</Nav.Link>
+                            <Nav.Link as={Link} to="/Contact" className="text-right" aria-label="Page pour contacter le responsable du site.">Nous contactez</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </div>
