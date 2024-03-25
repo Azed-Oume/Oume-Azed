@@ -1,4 +1,31 @@
 import React, { useState } from 'react';
+import { Button, Form, FormControl, FormGroup, FormLabel } from 'react-bootstrap';
+
+// Fonction de validation du mot de passe
+const validatePassword = (password, options) => {
+  // Vérifier si le mot de passe est défini et est une chaîne de caractères
+  if (typeof password !== 'string' || !password.length) return false;
+  // Vérification de la longueur minimale
+  if (password.length < options.minLength) return false;
+
+  // Vérification du nombre minimum de caractères minuscules
+  const lowercaseRegex = /[a-z]/;
+  if (!lowercaseRegex.test(password)) return false;
+
+  // Vérification du nombre minimum de caractères majuscules
+  const uppercaseRegex = /[A-Z]/;
+  if (!uppercaseRegex.test(password)) return false;
+
+  // Vérification du nombre minimum de chiffres
+  const numbersRegex = /[0-9]/;
+  if (!numbersRegex.test(password)) return false;
+
+  // Vérification du nombre minimum de symboles
+  const symbolsRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+  if (!symbolsRegex.test(password)) return false;
+
+  return true;
+};
 
 const Inscription = () => {
   const [formData, setFormData] = useState({
@@ -6,25 +33,36 @@ const Inscription = () => {
     prenom: '',
     societe:'',
     pseudo: '',
-    adresse_email: '',
-    ConfirmerAdresseEmail: '',
-    ConfirmerMotDePasse: '',
+    email: '',
+    ConfirmerEmail: '',
     mot_de_passe: '',
+    ConfirmerMot_dePasse: '',
+    code_role: '',
     rue:'',
-    code_postal: '',
     ville: '',
-    avatar: '',
+    code_postal: '',
+    // avatar: '',
     biographie: '',
-    role: '',
+
   });
+
   const [emailMatchError, setEmailMatchError] = useState(false);
   const [passwordMatchError, setPasswordMatchError] = useState(false);
+
+  const options = { minLength: 12, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
 
   const handleInputChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
 
     setFormData({ ...formData, [name]: value });
+    if (name === 'role') {
+      // Mapper la valeur sélectionnée vers le champ code_role
+      setFormData({ ...formData, code_role: value });
+    } else {
+      // Pour les autres champs, mettre à jour normalement
+      setFormData({ ...formData, [name]: value });
+    }
 
     // Réinitialiser les erreurs correspondantes lorsque les champs sont modifiés
     if (name === 'AdresseEmail' || name === 'ConfirmerAdresseEmail') {
@@ -36,7 +74,7 @@ const Inscription = () => {
   };
 
   const handleFileInputChange = async (event) => {
-    setFormData({ ...formData, Avatar: event.target.files[0] });
+    setFormData({ ...formData, avatar: event.target.files[0] });
     const file = event.target.files[0];
     if (file && file.size > 5 * 1024 * 1024) {
       alert("Le fichier est trop volumineux. Veuillez sélectionner un fichier de moins de 5 Mo.");
@@ -48,46 +86,70 @@ const Inscription = () => {
       // Fichier valide, effectuez le traitement ici
     }
   };
-  
 
   const handleUpload = () => {
     // Gérer le téléchargement et l'envoi des données au backend
     // ...
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    handleUpload();
-  };
+  const handleInscription = async () => {
+    const { email, ConfirmerEmail, mot_de_passe, ConfirmerMot_dePasse } = formData;
+  const emailMatchError = email !== ConfirmerEmail;
+  const passwordMatchError = mot_de_passe !== ConfirmerMot_dePasse;
 
-  const handleInscription = () => {
-    const { AdresseEmail, ConfirmerAdresseEmail, MotDePasse, ConfirmerMotDePasse } = formData;
-    const emailMatchError = AdresseEmail !== ConfirmerAdresseEmail;
-    const passwordMatchError = MotDePasse !== ConfirmerMotDePasse;
+  setEmailMatchError(emailMatchError);
+  setPasswordMatchError(passwordMatchError);
 
-    setEmailMatchError(emailMatchError);
-    setPasswordMatchError(passwordMatchError);
+  if (emailMatchError || passwordMatchError) {
+    return;
+  }
 
-    if (emailMatchError || passwordMatchError) {
-      return;
-    }
+  // Vérification côté client du mot de passe
+  const isPasswordValid = validatePassword(mot_de_passe, options);
+  if (!isPasswordValid) {
+    alert("Le mot de passe ne respecte pas les exigences minimales.");
+    return;
+  }
 
     // Envoyer les données au backend
-    // ...
+    try {
+      const response = await fetch('http://localhost:3000/api/user/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Une erreur est survenue lors de la requête au serveur.');
+      }
+      alert('Inscription réussie !');
+
+      // Redirection vers la page de Connexion
+        window.location.href = '/Connexion'; // Redirection vers la page d'accueil
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // handleInscription();
+  };
   
   return (
     <>
-    <div className="container graylogo col-md-10 mt-4 mb-4 rounded-4 pt-1">
+    <section className="container graylogo col-md-10 mt-4 mb-4 rounded-4 pt-1">
     <h2 className="h2 text-center graylogo rounded-4 text-white  mx-auto p-2">Formulaire d'Inscription :</h2>
-      <form className="row mb-2 mt-4 mx-auto" method="POST" onSubmit={handleSubmit}>
-        <div className="col-md-6 mx-auto">
-          <label 
+      <Form className="row mb-2 mt-4 mx-auto" method="POST" onSubmit={handleSubmit}>
+        <fieldset className="row col-md-12 mx-auto">
+          <FormGroup className='col-md-6'>
+          <FormLabel
           htmlFor="nom"
           className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
-          >Nom</label>
-          <input
+          >Nom</FormLabel>
+          <FormControl
             className="form-control mb-2 mx-auto"
             autoComplete="family-name"
             type="text"
@@ -96,13 +158,14 @@ const Inscription = () => {
             onChange={handleInputChange}
             required
           />
-        </div>
-        <div className="col-md-6 mx-auto">
-          <label 
+          </FormGroup>
+      
+        <FormGroup className="col-md-6 mx-auto">
+          <FormLabel
           htmlFor="prenom"
           className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
-          >Prenom</label>
-          <input
+          >Prenom</FormLabel>
+          <FormControl
             className="form-control mb-2 mx-auto"
             autoComplete="given-name"
             type="text"
@@ -111,13 +174,13 @@ const Inscription = () => {
             onChange={handleInputChange}
             required
           />
-        </div>
-        <div className="col-md-6 mx-auto">
-          <label 
+        </FormGroup>
+        <FormGroup className="col-md-6 mx-auto">
+          <FormLabel
           htmlFor="societe"
           className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
-          >Société</label>
-          <input
+          >Société</FormLabel>
+          <FormControl
             className="form-control mb-2 mx-auto"
             autoComplete="given-name"
             type="text"
@@ -125,13 +188,13 @@ const Inscription = () => {
             value={formData.societe}
             onChange={handleInputChange}
           />
-        </div>
-        <div className="col-md-6 mx-auto">
-          <label 
+        </FormGroup>
+        <FormGroup className="col-md-6 mx-auto">
+          <FormLabel
           htmlFor="pseudo"
           className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
-          >Pseudo</label>
-          <input
+          >Pseudo</FormLabel>
+          <FormControl
             className="form-control mb-2 mx-auto"
             autoComplete="username"
             type="text"
@@ -140,48 +203,48 @@ const Inscription = () => {
             onChange={handleInputChange}
             required
           />
-        </div>
-        <div className="col-md-6 mx-auto">
-          <label 
-          htmlFor="adresse_email"
+        </FormGroup>
+        <FormGroup className="col-md-6 mx-auto">
+          <FormLabel
+          htmlFor="email"
           className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
-          >Adresse Email</label>
-          <input
+          >Adresse Email</FormLabel>
+          <FormControl
             className="form-control mb-2 mx-auto"
             autoComplete="email"
             type="text"
-            name="adress_email"
-            value={formData.adresse_email}
+            name="email"
+            value={formData.email}
             onChange={handleInputChange}
             required
           />
-        </div>
-        <div className="col-md-6 mx-auto">
-          <label 
-          htmlFor="ConfirmerAdresseEmail"
+        </FormGroup>
+        <FormGroup className="col-md-6 mx-auto">
+          <FormLabel
+          htmlFor="ConfirmerEmail"
           className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
-          >Confirmer Adresse Email</label>
-          <input
+          >Confirmer Adresse Email</FormLabel>
+          <FormControl
             className="form-control mb-2 mx-auto"
             autoComplete="email"
             type="text"
-            name="ConfirmerAdresseEmail"
-            value={formData.ConfirmerAdresseEmail}
+            name="ConfirmerEmail"
+            value={formData.ConfirmerEmail}
             onChange={handleInputChange}
             required
           />
-        </div>
+        </FormGroup>
         {emailMatchError && (
-          <div className="col-md-12 fs-4 fw-bold text-dark mb-2">
+          <p className="col-md-12 fs-4 fw-bold text-dark mb-2">
             Les adresses email ne correspondent pas.
-          </div>
+          </p>
         )}
-        <div className="col-md-6 mx-auto">
-          <label 
+        <FormGroup className="col-md-6 mx-auto">
+          <FormLabel
           htmlFor="mot_de_passe"
           className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
-          >Mot de Passe</label>
-          <input
+          >Mot de Passe</FormLabel>
+          <FormControl
             className="form-control mb-2 mx-auto"
             autoComplete="new-password"
             type="password"
@@ -190,33 +253,33 @@ const Inscription = () => {
             onChange={handleInputChange}
             required
           />
-        </div>
-        <div className="col-md-6 mx-auto">
-          <label 
-          htmlFor="ConfirmerMotDePasse"
+        </FormGroup>
+        <FormGroup className="col-md-6 mx-auto">
+          <FormLabel
+          htmlFor="ConfirmerMot_dePasse"
           className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
-          >Confirmer Mot de Passe</label>
-          <input
+          >Confirmer Mot de Passe</FormLabel>
+          <FormControl
             className="form-control mb-2 mx-auto"
             autoComplete="new-password"
             type="password"
-            name="ConfirmerMotDePasse"
-            value={formData.ConfirmerMotDePasse}
+            name="ConfirmerMot_dePasse"
+            value={formData.ConfirmerMot_dePasse}
             onChange={handleInputChange}
             required
           />
-        </div>
+        </FormGroup>
         {passwordMatchError && (
-          <div className="col-md-12 fs-4 fw-bold text-dark mb-2">
+          <p className="col-md-12 fs-4 fw-bold text-dark mb-2">
             Les mots de passe ne correspondent pas.
-          </div>
+          </p>
         )}
-        <div className="col-md-4 mx-auto">
-          <label 
+        <FormGroup className="col-md-4 mx-auto">
+          <FormLabel
           htmlFor="rue"
           className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
-          >Rue</label>
-          <input
+          >Rue</FormLabel>
+          <FormControl
             className="form-control mb-2 mx-auto"
             autoComplete="given-name"
             type="text"
@@ -224,12 +287,13 @@ const Inscription = () => {
             value={formData.rue}
             onChange={handleInputChange}
           />
-        </div><div className="col-md-4 mx-auto">
-          <label 
+        </FormGroup>
+        <FormGroup className="col-md-4 mx-auto">
+          <FormLabel
           htmlFor="code_postal"
           className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
-          >Code-postal</label>
-          <input
+          >Code-postal</FormLabel>
+          <FormControl
             className="form-control mb-2 mx-auto"
             autoComplete="given-name"
             type="text"
@@ -237,12 +301,13 @@ const Inscription = () => {
             value={formData.code_postal}
             onChange={handleInputChange}
           />
-        </div><div className="col-md-4 mx-auto">
-          <label 
+        </FormGroup>
+        <FormGroup className="col-md-4 mx-auto">
+          <FormLabel
           htmlFor="ville"
           className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
-          >Ville</label>
-          <input
+          >Ville</FormLabel>
+          <FormControl
             className="form-control mb-2 mx-auto"
             autoComplete="given-name"
             type="text"
@@ -250,13 +315,13 @@ const Inscription = () => {
             value={formData.ville}
             onChange={handleInputChange}
           />
-        </div>
-        <div className="col-md-4 mx-auto">
-          <label 
+        </FormGroup>
+        {/* <FormGroup className="col-md-4 mx-auto">
+          <FormLabel
           htmlFor="avatar"
           className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
-          >Avatar</label>
-          <input
+          >Avatar</FormLabel>
+          <FormControl
             className="form-control-file col-md-12 mb-2 mx-auto"
             type="file"
             name="avatar"
@@ -264,7 +329,7 @@ const Inscription = () => {
             accept="image/*"
           />
         
-        {formData.Avatar && (
+        {formData.avatar && (
           <div className="col-md-4 mx-auto">
             <img
               className="img-thumbnail mb-2 mx-auto"
@@ -274,29 +339,29 @@ const Inscription = () => {
             />
           </div>
         )}
-        </div>
-        <div className="col-md-4 mx-auto">
-          <label 
+        </FormGroup> */}
+        <FormGroup className="col-md-4 mx-auto">
+          <FormLabel
           htmlFor="biographie"
           className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
-          >Biographie : dites nous quelques mots sur vous !</label>
-          <textarea
+          >Biographie : dites nous quelques mots sur vous !</FormLabel>
+          <FormControl
             className="form-control mb-2 mx-auto"
             type="text"
             name="biographie"
             value={formData.biographie}
             onChange={handleInputChange}
           />
-        </div>
+        </FormGroup>
         <div className="col-md-4 mx-auto">
           <label
-          htmlFor='role'
+          htmlFor='code_role'
           className="form-control bg-secondary mx-auto text-white fw-bold mb-2"
           >Rôle</label>
           <select
             className="form-select mb-2 mx-auto"
-            name="role"
-            value={formData.role}
+            name="code_role"
+            value={formData.code_role}
             onChange={handleInputChange}
             required
           >
@@ -304,16 +369,16 @@ const Inscription = () => {
             <option value="éditeur">Éditeur</option>
             <option value="administrateur">Administrateur</option>
             <option value="client">Client</option>
-            <option value="currieux">Curieux</option>
           </select>
         </div>
         <div className="col-md-12 mx-auto">
-          <button className="btn btn-primary mb-2 mx-auto" type="submit" onClick={handleInscription}>
+          <Button className="btn btn-primary mb-2 mx-auto" type="submit" onClick={handleInscription}>
             S'inscrire
-          </button>
+          </Button>
         </div>
-      </form>
-    </div>
+        </fieldset>
+      </Form>
+    </section>
     </>
   );
   

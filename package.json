@@ -1,7 +1,7 @@
 {
   "name": "oume-azed",
   "version": "1.0.0",
-  "description": "",
+  "description": "Développeur Web Web Mobile, un freeLance a votre Service pour créer votre Site ou Votre Application.",
   "source": "src/index.html",
   "scripts": {
     "test": "jest",
