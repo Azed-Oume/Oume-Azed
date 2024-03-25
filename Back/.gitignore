@@ -1,0 +1,6 @@
+#      OUMESSAOUD Azzedine: oumessaoud@hotmail.fr
+
+node_modules
+.env
+.app/public/
+.parcel-cache

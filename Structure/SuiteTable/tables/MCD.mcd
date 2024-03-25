@@ -1,0 +1,36 @@
+COMMENTAIRES : comment_code, titre, contenu, date_commentaire, auteur,  statut_commentaire
+COMMENTE, 0N ARTICLES, 11 COMMENTAIRES : COMMENTER
+ROLE :role_code , nom
+DETENU, 11 UTILISATEURS, 0N ROLE : POSSEDE
+MESSAGE : contact_code, pseudo, adresse_email, sujet, message
+ENVOYER, 0N UTILISATEURS , 11 MESSAGE : ENVOYE
+COMMANDER1, 0N UTILISATEURS, 11 COMMANDE : COMMANDE
+COMMANDE : commande_code, numero_commande, date_commande, statu_commande
+:
+
+DETIENT, 0N CATEGORIES, 11 ARTICLES : DETENUS
+ARTICLES : article_code, titre, contenu, date_publication, auteur, statut_publication, vues, image_couverture,
+PUBLIER, 0N UTILISATEURS, 11 ARTICLES
+UTILISATEURS : utilisateur_code, nom, prenom, societe, pseudo, adresse_email, mot_de_passe,rue, ville, code_postal, date_inscription, avatar, biographie
+COMPTABILISE, 0N UTILISATEURS, 11 FACTURE
+FACTURE : facture_code, numero_facture, nom_client, date_facture, date_echeance, montant_total, detail_projet, mode_paiement, statut_facture, information_paiement, r 
+REFERENCE1, 1N FACTURE, 11 COMMANDE
+REFERENCES, 1N COMMANDE, 0N PRODUIT : REFERENCER
+
+CATEGORIES : categorie_code, nom, description
+AVOIR, 0N ARTICLES, 0N TAGS
+TAGS : tag_code, nom
+COMMANDER2, 0N UTILISATEURS, 11 DEVIS
+DEVIS : devis_code, numero_devis, nom_client,  date_devis, validite_devis, detail_projet, statut_devis,
+REFERENCE2, 1N FACTURE, 11 DEVIS
+PRODUIT : produit_code, nom, tarif, avatar
+:
+
+:
+:
+:
+:
+:
+REFERENCE3, 1N PRODUIT, 1N DEVIS
+:
+:
